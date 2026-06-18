@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+example_plot.png
+integral_train_R64.mat
+integral_test_R1024.mat
