@@ -10,7 +10,20 @@ Existing evaluations use Partial Differential Equations (PDEs) like the Burgers'
 We propose a 1D dataset of an integral that has an analytical solution to isolate zero-shot super-resolution. The input function is a sine wave, while the output function is the exact integral of that wave. This integral has an exact mathematical solution, meaning that we will not encounter any error introduced by a numerical solver. Therefore a performance drop on higher-resolution datasets would be caused only by the neural operator failing to generalize, and would mean a failure at zero-shot super-resolution. This means that our dataset would provide a precise control test.
 
 ## Data Generation
+The control dataset is generated for two different spatial grids. The generation happens via Python code using NumPy, and is later saved in a .mat file using SciPy. A subset of the points is also plotted via MatPlotLib to ensure that the data generation was successful. The training dataset consists of 800 samples generated at a low-resolution spatial grid of 64 points equally spread between x=0 and x=1. The testing dataset consists of 200 samples generated at a high-resolution spatial grid of 1024 points equally spread between x=0 and x=1. To be compatible with the existing neural operator codebases, the data is saved in a .mat format, containg the input array "a" and the output array "u". This matches the structure of the 1D Burgers' dataset used in "Neural Operator: Learning Maps Between Function Spaces".
 
+## Examples
+An example from our dataset maps a frequency-randomized sine wave to its integral:
+### Input a: a(x) = sin(c * 2 * pi * x)
+### Output u: u(x) = (1 - cos(c * 2 * pi * x)) / (c * 2 * pi) - the exact mathematical solution
+Here, c is a random constant between 1 and 5.
+
+A concrete example of input values when c=1 would be:
+TODO
+
+## Links
+### Generation code: https://github.com/gdimitrovdev/neural-operator-control-dataset
+### Train (grid size 64) and test (grid size 1024) datasets: https://doi.org/10.5281/zenodo.20754083
 
 ## References
 [1] Kovachki, N., Li, Z., Liu, B., Azizzadenesheli, K., Bhattacharya, K., Stuart, A., & Anandkumar, A. (2021). Neural Operator: Learning Maps Between Function Spaces. arXiv preprint arXiv:2108.08481.
