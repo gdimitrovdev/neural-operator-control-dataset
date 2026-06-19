@@ -18,8 +18,10 @@ An example from our dataset maps a frequency-randomized sine wave to its integra
 ### Output u: u(x) = (1 - cos(c * 2 * pi * x)) / (c * 2 * pi) - the exact mathematical solution
 Here, c is a random constant between 1 and 5.
 
-A concrete example of input values when c=1 would be:
-TODO
+A concrete example of input values when c=1 for grid size of 5 (as otherwise the example would be too large) would be:
+### x = [0.0, 0.25, 0.5, 0.75, 1.0]
+### a = [0.0, 1.0, 0.0, -1.0, 0.0]
+### u = [0.0, 0.15915494309189535, 0.3183098861837907, 0.15915494309189535, 0.0]
 
 ## Links
 ### Generation code: https://github.com/gdimitrovdev/neural-operator-control-dataset
